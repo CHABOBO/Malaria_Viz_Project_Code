@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning D3</title>
+  <link rel="stylesheet" href="209.css">
+  <script  type="text/javascript" src="d3.min.js"></script>
+</head>
+<div id="header">
+  <br>
+  <br><br><span style="font-family: helvetica; color:#00BFFF; font-weight:bold;font-size: 90px;">WHO</span> Will End <span style="font-size: 70px; color:#ff0000; font-weight: bold;">Malaria</span><span style="font-family: garamond; font-weight: bold; font-size:90px;">?</span></div>
+   <div id="space" style=" width:450px; height:60px;"></div>
+<div class="container_b" style="clear:both;">
+  <div class="pp pp-one pp-offset-1">
+    <p id="beginning-paragraph" style="font-family: gill-sans, sans-serif;">
+ As of 
+ <span style="color: #ff0000; font-size:20px; font-weight: bold;">May 2015 <span style="font-family: helvetica; color:#00BFFF; font-weight:bold;font-size: 20px;"><a href="https://www.who.int/malaria/en/">WHO</a></span> has pledged to decrease the rate of malaria cases and deaths by 90% and eliminate malaria in 35 countries</span> through adoption of the <span style="font-weight:bold;">"Global technical strategy for malaria 2016-2030"</span>. <span style="font-family: helvetica; color:#00BFFF; font-weight:bold;font-size: 20px;">WHO</span>, through increased efforts in data collection,
+  has seen a significant decline in the number of malaria deaths since <span style="font-family: garamond; font-weight: bold;">2000</span> which has been attributed to the tactical increase of tools made to prevent and treat malaria. Risk of contracting malaria is still high, especially in African countries between
+  <span style="font-family: garamond, sans-serif; font-weight: bold;">latitude 15 N, latitude 10 S with preciptous climates</span>.</p>
+  </div>
+   <div class="pp pp-two pp-offset-1">
+     <div id="middle"></div>
+     </div>
+  <div class="pp pp-three pp-offset-1">
+    <div class="container">
+      <div class="column column-one" style="font-family: gill-sans; font-size: 18px; font-weight: bold; text-align: center;" ><br>Average Decline<br> of <br>Malaria Cases<br> by % of Population
+        <br> (2000-2013)
+        <p id="important-info"  style="font-family: helvetica; font-size: 20px; font-weight: 200; text-align: center;"> -2% yearly</p>
+      </div>
+      <div class="column column-two " style="font-family: gill-sans; font-size: 18px; font-weight: bold;text-align: center;"><br>Average<br> GDP Increase<br> by<br> Current US $
+        <br> (2000-2013)
+        <p id="important-info"  style="font-family: helvetica; font-size: 20px; font-weight: 200;"> $4.7 million yearly</p></div>
+      <div class="column column-three " style="font-family: gill-sans; font-size: 18px; font-weight: bold; text-align: center;"><br>Average<br> Health Expenditure <br>by<br> % GDP
+      <br> (2000-2013)
+       <p id="important-info" style="font-family: helvetica; font-size: 20px; font-weight:200;"> 0.13% yearly</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container_a" style="clear:both;">
+<div class="para para-one para-offset-1">
+<p id="beginning-paragraph" style="font-family: gill-sans, sans-serif;">
+  <br>
+  <br>We, as a project team, aim to review countries that through <span style="font-family: garamond; font-weight: bold;"> 2000-2013</span>:
+  <br>
+  <br> 1. Have seen the most dramatic decline in malaria cases since <span style="font-family: garamond; font-weight: bold;">2000</span>
+  <br>
+  <br> 2. Are currently situated on the continent of Africa between <span style="font-family: garamond, sans-serif; font-weight: bold;">latitude 15 N, latitude 10 S</span>
+  <br>
+  <br> 3. Have available data on cases and deaths of Malaria as collected by WHO
+  <br>
+  <br> We review the top 15 to 35 African Countries experiencing the greatest decline in cases of malaria between <span style="font-family: garamond; font-weight: bold;">2000-2013</span>.
+</p>
+</div>
+<div class="para para-two para-offset-2">
+<div id="middle" >
+</div>
+</div>
+<div class="para para-three para-offset-3" style="width:500px; height:400;">
+<th style="font-weight: 400; width: 400px; height: 20px; text-align: center;">Top 15 Countries with Largest Decrease in Malaria: GDP Over Time</th>
+<button type="button" id="b1" onclick="init();">Click me</button>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<div id="chart_div1" style="width: 550px; height: 330px; border: solid;"></div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</div>
+<div class="col col-one">
+  <body>
+  <!--Table and divs that hold the pie charts-->
+
+    <table class="columns">
+      <tr>
+        <td>
+          <th id="tit" style="font-weight:400;">Top 35 Countries in Africa Experiencing the Greatest Decline in Malaria
+          <br /><span style="font-weight: bold;">2000</span>
+            <div id="regions_div"></div>
+          </th>
+        </td>
+        <td>
+          <th id="tit" style="font-weight:400;">Top 35 Countries in Africa Experiencing the Greatest Decline in Malaria
+          <br /> <span style="font-weight: bold;">2005</span>
+            <div id="regions2_div"></div>
+          </th>
+        </td>
+        <td>
+          <th id="tit" style="font-weight:400;">Top 35 Countries in Africa Experiencing the Greatest Decline in Malaria
+          <br /><span style="font-weight:bold;"> 2010</span>
+            <div id="regions3_div"></div>
+          </th>
+        </td>
+        <td>
+          <th id= "tit" style="font-weight:400;">Top 35 Countries in Africa Experiencing the Greatest Decline in Malaria
+          <br /><span style="font-weight:bold;">2013</span>
+            <div id="regions4_div"></div>
+          </th>
+        </td>
+      </tr>
+    </table>
+  </body>
+</div>
+<div class="col col-two"></div>
+<div class="col col-three">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+    <table id="table-sparkline">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Climate (Primary)
+          <br>
+            <hr width="70" align="center">Climate (Secondary)</th>
+          <th>% Population Estimated <br> Malaria Cases</th>
+          <th>GDP: <br>Current US $</th>
+          <th>Average GDP:<br> Current US $</th>
+          <th>Average<br> Health Expenditure:<br> Current US $</th>
+          </th>
+          <th>Health Expenditure<br> by % GDP</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-sparkline">
+        <tr>
+          <th>Angola</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="31.8, 30, 11.3, 14.5 "/>
+          <td data-sparkline="9129634978, 28233712831, 82470913121, 124912063308"/>
+          <td>61.2 Mil</td>
+          <td>3.6%</td>
+          <td data-sparkline="2.78728366, 4.10396002, 3.39114609, 4.26303169"/>
+        </tr>
+        <tr>
+          <th>Benin</th>
+          <td>Subtropical
+          <br>
+          <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="39, 42, 34, 30"/>
+          <td data-sparkline="2569186643, 4803702821, 6970240895,  9156748441"/>
+          <td>5.9 Mil</td>
+          <td>4.7%</td>
+          <td data-sparkline="4.33873071,	4.73384847,	4.94824039,	4.59205377"/>
+        </tr>
+        <tr>
+          <th>Burkina Faso</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Hot Semi-arid</td>
+          <td data-sparkline="62, 55, 60, 42"/>
+          <td data-sparkline="2628920056, 5458343594, 8988623686, 11930742614"/>
+          <td>7.3 Mil</td>
+          <td>6.3%</td>
+          <td data-sparkline="5.05909906, 6.87238586, 7.17005016, 5.91240213"/>
+        </tr>
+        <tr>
+          <th>Burundi</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="41, 28, 20, 13"/>
+          <td data-sparkline="870486066, 1117257279, 2026864469, 2714505635"/>
+          <td>1.7 Mil</td>
+          <td>7.9%</td>
+          <td data-sparkline="4.97839061, 9.83776739, 8.82066864, 8.03161378"/>
+        </tr>
+        <tr>
+          <th>Cameroon</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="40, 44, 28, 23"/>
+          <td data-sparkline="9287367235, 16587858857, 23622483984, 29567504655"/>
+          <td>19.8 Mil</td>
+          <td>4.7%</td>
+          <td data-sparkline="4.47926062, 4.75114245, 5.28483734, 4.29309731"/>
+        </tr>
+        <tr>
+          <th>Central African Republic</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="43, 47, 36, 0.32"/>
+          <td data-sparkline="914500299, 1350301057, 1986014846, 1518565219"/>
+          <td>1.4 Mil</td>
+          <td>4.0%</td>
+          <td data-sparkline="4.23554071, 4.29009912, 3.89743425, 3.82208893"/>
+        </tr>
+        <tr>
+          <th>Chad</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="20, 22, 16, 14"/>
+          <td data-sparkline="1385058162,	6646663021,	10657705536, 12949854263"/>
+          <td>7.9 Mil</td>
+          <td>4.1%</td>
+          <td data-sparkline="6.27665152, 3.91024833, 2.94877337, 3.41745392"/>
+        </tr>
+        <tr>
+          <th>Comoros</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="20, 19, 20, 03"/>
+          <td data-sparkline="203846428, 380372893, 530493353, 618663922"/>
+          <td>0.4 Mil</td>
+          <td>5.0%</td>
+          <td data-sparkline="3.55560015, 4.31649402, 5.82480352, 6.50938357"/>
+        </tr>
+        <tr>
+          <th>Congo</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="35, 34, 22, 01"/>
+          <td data-sparkline="3219910666, 6087002682, 12007880590, 14085852120"/>
+          <td>8.8 Mil</td>
+          <td>3.0%</td>
+          <td data-sparkline="2.12504959, 2.42171832, 2.29284845, 5.09464112"/>
+        </tr>
+        <tr>
+          <th>Cote d'Ivoire</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="53, 53, 45, 38"/>
+          <td data-sparkline="10717022463, 17084928927, 24884505035, 31264187110"/>
+          <td>21 Mil</td>
+          <td>5.9%</td>
+          <td data-sparkline="6.00117587, 5.3896073, 6.32384065, 5.80954361"/>
+        </tr>
+        <tr>
+          <th>Dem. Rep. of the Congo</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="50, 52, 42, 29"/>
+          <td data-sparkline="19088046306, 11964484668, 20523285374, 30014813756"/>
+          <td>20.4 Mil</td>
+          <td>3.1%</td>
+          <td data-sparkline="1.44624365, 3.14461623, 4.04297925, 3.88677527"/>
+        </tr>
+        <tr>
+          <th>Equatorial Guinea</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="36, 40, 21, 21"/>
+          <td data-sparkline="1045998496, 8217369093, 16298542028, 21942597765"/>
+          <td>11.8 Mil</td>
+          <td>2.9%</td>
+          <td data-sparkline="2.73288105, 1.63062912, 3.83919384, 3.73335792"/>
+        </tr>
+        <tr>
+          <th>Ethiopia</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="13, 06, 05, 04"/>
+          <td data-sparkline="8242392104, 12401139454, 29933790334, 47648211133"/>
+          <td>24.5 Mil</td>
+          <td>5.2%</td>
+          <td data-sparkline="4.36421528, 4.20170809, 6.86140983, 5.19220468"/>
+        </tr>
+        <tr>
+          <th>Gabon</th>
+          <td>Tropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="36, 17, 15, 21"/>
+          <td data-sparkline="5067865321, 9458884812, 14358584300, 17590716232"/>
+          <td>11.6 Mil</td>
+          <td>3.2%</td>
+          <td data-sparkline="2.88920101, 2.75520343, 3.370627453, 3.98331084"/>
+        </tr>
+        <tr>
+          <th>Gambia</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Hot Semi-arid</td>
+          <td data-sparkline="34, 29, 25, 24"/>
+          <td data-sparkline="782915402, 624174724, 952429030, 903779326"/>
+          <td>0.8 Mil</td>
+          <td>5.2%</td>
+          <td data-sparkline="3.61338256, 4.96685998, 5.75051063, 6.49113393"/>
+        </tr>
+        <tr>
+          <th>Ghana</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="49, 39, 39, 32"/>
+          <td data-sparkline="4983024408, 10731634117, 32174772956, 47805069495"/>
+          <td>23.9 Mil</td>
+          <td>4.4%</td>
+          <td data-sparkline="2.99813339, 4.50784786, 5.33452117, 4.62620018"/>
+        </tr>
+        <tr>
+          <th>Guinea</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="48, 42, 41, 40 "/>
+          <td data-sparkline="2995360969, 2937071767, 4735956493, 6231725485"/>
+          <td>4.2 Mil</td>
+          <td>4.1%</td>
+          <td data-sparkline="3.45616834, 2.82148862, 4.54713891, 5.49316028"/>
+        </tr>
+        <tr>
+          <th>Guinea-Bissau</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="43, 13, 10, 11"/>
+          <td data-sparkline="2995360969, 2937071767, 4735956493, 6231725485"/>
+          <td>4.2 Mil</td>
+          <td>5.9%</td>
+          <td data-sparkline="4.93580872, 5.71621565, 6.69821693, 6.13947839"/>
+        </tr>
+        <tr>
+          <th>Kenya</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="23, 15, 08, 15"/>
+          <td data-sparkline="12705357103, 18737895401	39999659234, 55100780396"/>
+          <td>31.6 Mil</td>
+          <td>4.6%</td>
+          <td data-sparkline="4.68273816, 4.36354595, 3.97371597, 5.56790477"/>
+        </tr>
+        <tr>
+          <th>Liberia</th>
+          <td>Tropial
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="48, 46, 33, 37"/>
+          <td data-sparkline="529064600, 550000000, 1292697100, 1946500000"/>
+          <td>1.1 Mil</td>
+          <td>8.8%</td>
+          <td data-sparkline="5.91313981, 8.0358831, 11.86712183, 9.25436605"/>
+        </tr>
+        <tr>
+          <th>Malawi</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Mediterranean</td>
+          <td data-sparkline="43, 32, 42, 22"/>
+          <td data-sparkline="1743506287, 3655892942, 6957454879, 5432169048"/>
+          <td>4.4 Mil</td>
+          <td>8.8%</td>
+          <td data-sparkline="6.06981896, 8.20169881, 10.04536369, 10.96199023"/>
+        </tr>
+        <tr>
+          <th>Mozambique</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="51, 44, 38, 35"/>
+          <td data-sparkline="5016469069, 7723846195, 10154238250, 16018848991"/>
+          <td>9.7 Mil</td>
+          <td>6.1%</td>
+          <td data-sparkline="6.16162092, 6.86781935, 5.3803234, 5.89790701"/>
+        </tr>
+        <tr>
+          <th>Niger</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="33, 34, 37, 27"/>
+          <td data-sparkline="1798374468, 3405134832,	5718589799, 7667951988"/>
+          <td>4.6 Mil</td>
+          <td>6.2%</td>
+          <td data-sparkline="6.00536329, 7.14963764, 6.36161217, 5.0897826"/>
+        </tr>
+        <tr>
+          <th>Nigeria</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="44, 42, 37, 34"/>
+          <td data-sparkline="46385996029, 112248324605,	369062464570, 514966287206"/>
+          <td>260 Mil</td>
+          <td>3.5%</td>
+          <td data-sparkline="2.83703653, 4.10629745, 3.47052573, 3.70392576"/>
+        </tr>
+        <tr>
+          <th>Papua New Guinea</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="26, 23, 18, 18"/>
+          <td data-sparkline="3521348155,	4865971718,	9716103409,	15413163675"/>
+          <td>8.3 Mil</td>
+          <td>3.6%</td>
+          <td data-sparkline="2.78728366, 4.10396002, 3.39114609, 4.26303169"/>
+        </tr>
+        <tr>
+          <th>Rwanda</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="42, 18, 11, 12"/>
+          <td data-sparkline="1734938264, 2581465864, 5698548989, 7522006198"/>
+          <td>4.4 Mil</td>
+          <td>6.7%</td>
+          <td data-sparkline="4.22067539, 6.83378867, 7.90988034, 7.6883653"/>
+        </tr>
+        <tr>
+          <th>Sao Tome & Principe</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="34, 20, 03, 09"/>
+          <td data-sparkline="null, 126194166, 197454053, 302925490"/>
+          <td>0.2 Mil</td>
+          <td>8.5%</td>
+          <td data-sparkline="8.8589867, 10.03778171, 5.24180131, 9.76121412"/>
+        </tr>
+        <tr>
+          <th>Senegal</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="22, 12, 12, 13"/>
+          <td data-sparkline="4679604754,	8707015771,	12914130614, 14806481145"/>
+          <td>10.2 Mil</td>
+          <td>4.8%</td>
+          <td data-sparkline="4.63151098, 5.35462391, 4.62149151, 4.51055336"/>
+        </tr>
+        <tr>
+          <th>Sierre Leone</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="49, 47, 48, 40"/>
+          <td data-sparkline="9129634978, 28233712831, 82470913121, 124912063308"/>
+          <td>61.2 Mil</td>
+          <td>3.6%</td>
+          <td data-sparkline="2.78728366, 4.10396002, 3.39114609, 4.26303169"/>
+        </tr>
+        <tr>
+          <th>South Sudan</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Hot Semi-arid</td>
+          <td data-sparkline="30, 22, 18, 16"/>
+          <td data-sparkline="null, null, 15727363443, 13257635695"/>
+          <td>14.5 Mil</td>
+          <td>0.7%</td>
+          <td data-sparkline="0, 0, 0, 2.61923747"/>
+        </tr>
+        <tr>
+          <th>Sudan</th>
+          <td>Subtropical
+          <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="09, 07, 03, 03"/>
+          <td data-sparkline="12257418326,	26524538566, 65634109237,	72065940086"/>
+          <td>44 Mil</td>
+          <td>3.6%</td>
+          <td data-sparkline="2.78728366, 4.10396002, 3.39114609, 4.26303169"/>
+        </tr>
+        <tr>
+          <th>Togo</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="51, 50, 45, 38"/>
+          <td data-sparkline="1294250233, 2115154262, 3172945645, 4080929201"/>
+          <td>2.7 Mil</td>
+          <td>5.0%</td>
+          <td data-sparkline="4.34587672, 5.17180825, 5.36773553, 5.11926485"/>
+        </tr>
+        <tr>
+          <th>Uganda</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Subtropical</td>
+          <td data-sparkline="51, 46, 42, 22"/>
+          <td data-sparkline="6193246837, 9013834373, 20186498789, 24992173594"/>
+          <td>15.1 Mil</td>
+          <td>8.7%</td>
+          <td data-sparkline="6.77320288, 9.36187998, 11.02478546, 7.47352248"/>
+        </tr>
+        <tr>
+          <th>United Rep. of Tanzania</th>
+          <td>Tropical
+            <br>
+            <hr width="50" align="center">Mediterranean</td>
+          <td data-sparkline="35, 25, 15, 11"/>
+          <td data-sparkline="10185786383, 16929976600, 31407908612, 44333456245"/>
+          <td>25.7 Mil</td>
+          <td>4.5%</td>
+          <td data-sparkline="2.64168592, 4.66284406, 5.29671631, 5.56967822"/>
+        </tr>
+        <tr>
+          <th>Zambia</th>
+          <td>Subtropical
+            <br>
+            <hr width="50" align="center">Tropical</td>
+          <td data-sparkline="38, 24, 16, 22"/>
+          <td data-sparkline="3600683040, 8331870169, 20265556274, 28045460442"/>
+          <td>15 Mil</td>
+          <td>6.0%</td>
+          <td data-sparkline="7.16155106, 7.55610861, 4.40728156, 4.99279017"/>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript" src="209.js"></script>
+</div>
+<div class="col col-four" style="text-align: center;">
+  <div id="footer">
+    <p>
+  With limited time and limited knowledge we have only provided the simpliest review of what countries could experience the greatest decline in malaria cases. We hope that you, the public, will dig further into the battle against malaria and support organizations like WHO.
+    </p>
+    <p>
+   Authors: Zhongqiao Jin, Madison Myers, Elizabeth Chabot
+   <br>JS fiddle: <a href="https://jsfiddle.net/user/madisonjmyers/"> Madisonjmyers</a>, <a href="https://jsfiddle.net/user/chabobo/">Chabobo</a>
+   <br>Important Links: <a href="https://www.who.int/en/"> WHO</a>, <a href="https://www.worldbank.org/"> World Bank </a>, <a href=https://www.data.gov/>Data.gov</a>
+    </p>
+  </div>
+</div>
+</html>
+
+
